@@ -15,15 +15,15 @@
 
             <table class="table table-hover">
                 <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Info</th>
-                    <th scope="col">Actions</th>
-                </tr>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Info</th>
+                        <th scope="col">Actions</th>
+                    </tr>
                 </thead>
                 <tbody>
-                    {% for todo in todos %}
-                    {% if todo.complete == False %}
+                {% for todo in todos %}
+                {% if todo.complete == False %}
                 <tr class="pointer">
                     <td>{{loop.index}}</td>
                     <td>{{todo.title}}</td>
@@ -53,13 +53,6 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
 
 
 

@@ -11,4 +11,3 @@ def test_return_health_check():
     assert response.json() == {'status': 'Healthy'}
 
 
-

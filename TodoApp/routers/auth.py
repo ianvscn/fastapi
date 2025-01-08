@@ -11,14 +11,12 @@ from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer
 from jose import jwt, JWTError
 from fastapi.templating import Jinja2Templates
 
-
 router = APIRouter(
     prefix='/auth',
     tags=['auth']
 )
 
-
-SECRET_KEY = 'b4a523f88779efd0487f0b928f1705c19ca749a2da8bfc8515567281b7f21cc5'
+SECRET_KEY = '197b2c37c391bed93fe80344fe73b806947a65e36206e05a1a23c2fa12702fe3'
 ALGORITHM = 'HS256'
 
 bcrypt_context = CryptContext(schemes=['bcrypt'], deprecated='auto')
@@ -33,6 +31,7 @@ class CreateUserRequest(BaseModel):
     password: str
     role: str
     phone_number: str
+
 
 class Token(BaseModel):
     access_token: str
@@ -121,5 +120,11 @@ async def login_for_access_token(form_data: Annotated[OAuth2PasswordRequestForm,
                             detail='Could not validate user.')
     token = create_access_token(user.username, user.id, user.role, timedelta(minutes=20))
 
-    return {'access_token': token, 'token_type':  'bearer'}
+    return {'access_token': token, 'token_type': 'bearer'}
+
+
+
+
+
+
 
